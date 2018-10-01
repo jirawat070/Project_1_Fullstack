@@ -91,7 +91,8 @@ app.post('/product/update',function (req, res) {
 
 
 
-
-console.log('Appp is running at http://localhost:8080');
-
-app.listen(8080);
+//เป็นส่วนที่ไปดึงค่าที่heroku set  ไว้
+var port = process.env.PORT || 8080;
+app.listen(port, function() {
+console.log('App is running on http://localhost:' + port);
+});
