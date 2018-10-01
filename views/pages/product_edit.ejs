@@ -1,0 +1,24 @@
+<% include ../partials/header %>
+<form action="/product/update" method="post">
+<div class="form-group">
+  <label for="">ID</label>
+  <input type="number"
+    class="form-control" value="<%= product.id %>" name="id" id="" aria-describedby="helpId" placeholder="">
+  <small id="helpId" class="form-text text-muted">ProductID</small>
+</div>
+<div class="form-group">
+    <label for="">Title</label>
+    <input type="text"
+      class="form-control" value="<%= product.title %>" name="title" id="" aria-describedby="helpId" placeholder="">
+    <small id="helpId" class="form-text text-muted">Product title</small>
+</div>
+<div class="form-group">
+    <label for="">Price</label>
+    <input type="number"
+      class="form-control" value="<%= product.Price %>" name="price" id="" aria-describedby="helpId" placeholder="">
+    <small id="helpId" class="form-text text-muted">Product price</small>
+  </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+</form>
+<% include ../partials/footer %>
