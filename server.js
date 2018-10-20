@@ -17,7 +17,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/about', function (req, res) {
-    var name = Jirawat Paenkaew;
+    var name = 'Jirawat Paenkaew';
     var hobbies = ['Music', 'Movie', 'Programming'];
     var bdate = '08/08/1997';
     res.render('pages/about', { fullname: name, hobbies: hobbies, bdate: bdate });
@@ -36,7 +36,7 @@ app.get('/products', function (req, res) {
             res.render('pages/products', { products: data })
 
         })
-        .catch(functio n (error) {
+        .catch(function (error) {
             console.log('ERROR:' + error);
         })
 });
@@ -83,7 +83,7 @@ app.post('/product/update',function (req, res) {
     var title = req.body.title;
     var price = req.body.price;
     var sql =  `update products set title = ${title} ,price = ${price} where id = ${id}`;
-    db.none
+    //db.none
     console.log('Update' + sql);
     res.redirect('/products') //ส่งuserไปที่หน้าอื่นของเว็บ
 
@@ -94,7 +94,7 @@ app.post('/product/update',function (req, res) {
 
 
 //เป็นส่วนที่ไปดึงค่าที่heroku set  ไว้
-var port = process.env.PORT || 8085;
+var port = process.env.PORT || 8080;
 app.listen(port, function() {
 console.log('App is running on http://localhost:' + port);
 });
