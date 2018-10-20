@@ -100,7 +100,7 @@ app.get('/product_delete/:pid',function (req, res) {
         .then(function(data){
             console.log('DATA:'+data);
             
-            res.render('pages/products',{products : data});
+            res.redirect('/products') //ส่งuserไปที่หน้าอื่นของเว็บ
             
         })
         .catch(function(data){
