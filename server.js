@@ -29,9 +29,9 @@ app.get('/products', function (req, res) {
     var sql = 'select* from products'
     ;
     if (id) {
-        sql += ' where id =' + id;
+        sql += ' where id =' + id +' order by id';
     }
-    db.any(sql+'order by id')
+    db.any(sql+' order by id')
         .then(function (data) {
             console.log('DATA:' + data);
             res.render('pages/products', { products: data })
