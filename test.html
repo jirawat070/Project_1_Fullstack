@@ -1,0 +1,35 @@
+้้<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script>
+   
+    var jsonData = '{"person":{"frist" :[{"xxx":"a","2":"B"},{"xxb":"a22","p":"B"}],"2":"NAKEW MAEE","namef":"lord vorthemorev"}}';
+    var v = ["A","V","D"];
+    var x ="frist";
+    var jsonobject = JSON.parse(jsonData);
+    document.write(jsonobject.person.frist[1].p+" "+jsonobject['person']['frist'][0]['xxx']);
+    
+
+
+
+
+
+     for(var i=0;i<v.length ;i++){
+
+document.write(jsonobject.person.frist[i].p+" "+jsonobject['person']['frist'][0]['xxx']);
+        document.write("<br>"+v[i]+"<br>");
+        
+        
+     }
+    
+
+</script>
+<body>
+
+</body>
+</html>

@@ -1,6 +1,8 @@
 var express = require('express');
 var pgp = require('pg-promise')();
-var db = pgp('postgres://nkwnjxuiidwrns:b72b4de42f726173c9acee8a85dd10ed1c8dc1a2ab7402a6feebbbccb8b14f85@ec2-54-163-245-44.compute-1.amazonaws.com:5432/d34ii1v5fr4h1e?ssl=true');
+// var db = pgp(process.env. HEROKU_POSTGRESQL_DATABASE_URL);
+
+var db = pgp('postgres://zyenusgppnblre:ffd912c16f1f131cc08a6079470346b92bd1a09ef31d5c4c2d9a1b651add4180@ec2-54-243-147-162.compute-1.amazonaws.com:5432/deli4r3tvtu87f?ssl=true');
 var app = express();
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -15,9 +17,9 @@ app.get('/', function (req, res) {
 });
 
 app.get('/about', function (req, res) {
-    var name = ['BUBBLE'];
+    var name = Jirawat Paenkaew;
     var hobbies = ['Music', 'Movie', 'Programming'];
-    var bdate = '27/03/1997';
+    var bdate = '08/08/1997';
     res.render('pages/about', { fullname: name, hobbies: hobbies, bdate: bdate });
 
 });
@@ -34,7 +36,7 @@ app.get('/products', function (req, res) {
             res.render('pages/products', { products: data })
 
         })
-        .catch(function (error) {
+        .catch(functio n (error) {
             console.log('ERROR:' + error);
         })
 });
@@ -81,7 +83,7 @@ app.post('/product/update',function (req, res) {
     var title = req.body.title;
     var price = req.body.price;
     var sql =  `update products set title = ${title} ,price = ${price} where id = ${id}`;
-    // db.none
+    //db.none
     console.log('Update' + sql);
     res.redirect('/products') //ส่งuserไปที่หน้าอื่นของเว็บ
 
