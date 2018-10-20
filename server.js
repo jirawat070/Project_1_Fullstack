@@ -83,7 +83,7 @@ app.post('/product/update',function (req, res) {
     var title = req.body.title;
     var price = req.body.price;
     var sql =  `update products set title = ${title} ,price = ${price} where id = ${id}`;
-    //db.none
+    db.none
     console.log('Update' + sql);
     res.redirect('/products') //ส่งuserไปที่หน้าอื่นของเว็บ
 
