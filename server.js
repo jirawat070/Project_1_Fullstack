@@ -90,6 +90,28 @@ app.post('/product/update',function (req, res) {
 
 
 });
+app.get('/product_delete/:pid',function (req, res) {
+    var id = req.params.pid;
+    var sql = 'delete from products';
+    if (id){
+            sql += ' where id ='+ id;
+    }
+    db.any(sql)
+        .then(function(data){
+            console.log('DATA:'+data);
+            res.render('pages/products',{products : data});
+            
+        })
+        .catch(function(data){
+                console.log('ERROR:'+console.error);
+                
+    })
+ });
+
+
+
+
+
 
 
 
