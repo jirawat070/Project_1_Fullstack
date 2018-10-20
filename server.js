@@ -109,7 +109,11 @@ app.get('/product_delete/:pid',function (req, res) {
     })
  });
 
-
+ app.get('/addProduct', function(req, res) {
+    var time = moment().format();
+        res.render('pages/product_add',{time: time})
+        
+    });
 
 
 
