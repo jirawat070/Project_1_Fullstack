@@ -26,9 +26,10 @@ app.get('/about', function (req, res) {
 //Display all products
 app.get('/products', function (req, res) {
     var id = req.param('id');
-    var sql = 'select* from products';
+    var sql = 'select* from products'
+    ;
     if (id) {
-        sql += ' where id =' + id;
+        sql += ' where id =' + id+'order by id';
     }
     db.any(sql)
         .then(function (data) {
