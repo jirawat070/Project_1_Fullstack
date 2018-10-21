@@ -116,11 +116,28 @@ app.get('/product_delete/:pid',function (req, res) {
         
     });
 
+    app.post('/product/insert',function (req, res) {
+        var id = req.body.id;
+        var title = req.body.title;
+        var price = req.body.price;
+        var time = req.body.time;
+        var sql =  "INSERT INTO products (id,title,price,created_at) VALUES('${id}','${title}','${price}','${time}')";
+        db.any(sql)
+        .then(function (data) {
+            console.log('DATA:' + data);
+            res.redirect('/products')
+        })
+
+        .catch(function (error) {
+            console.log('ERROR:' + error);
+        })
+    
+    
+    });
 
 
 
-
-
+    INSERT INTO "public"."products" (id,title,price,created_at) VALUES(555,'twa','500','2011-01-02 03:00:00+07');
 
 //เป็นส่วนที่ไปดึงค่าที่heroku set  ไว้
 var port = process.env.PORT || 8080;
