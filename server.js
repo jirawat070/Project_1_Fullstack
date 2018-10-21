@@ -132,7 +132,6 @@ app.get('/product_delete/:pid',function (req, res) {
             console.log('ERROR:' + error);
         })
     
-    
     });
 
 
