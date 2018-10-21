@@ -136,7 +136,7 @@ app.get('/product_delete/:pid',function (req, res) {
 
 
 
-    INSERT INTO "public"."products" (id,title,price,created_at) VALUES(555,'twa','500','2011-01-02 03:00:00+07');
+  
 
 //เป็นส่วนที่ไปดึงค่าที่heroku set  ไว้
 var port = process.env.PORT || 8080;
