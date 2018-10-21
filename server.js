@@ -135,6 +135,11 @@ app.get('/product_delete/:pid',function (req, res) {
     
     });
 
+    app.get('/addUser', function(req, res) {
+        var time = moment().format();
+            res.render('pages/user_add',{time: time})
+            
+        });
 
 
   
