@@ -1,0 +1,26 @@
+<% include ../partials/header %>
+&nbsp;
+<h1 class="text-center">Report:Top 25 Customers by Sales</h1>
+<div class="table-responsive">
+<table class="table">
+    <thead>
+        <tr>
+            <th>Customers ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Total Sales</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% user.forEach(function(user) { %>
+        <tr>
+            <td scope="row"><%= user.user_id %></td>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+            <td>$<%= user.price %></td>
+        </tr>
+        <% }); %>
+    </tbody>
+</table>
+</div>
+ <% include ../partials/footer %>
