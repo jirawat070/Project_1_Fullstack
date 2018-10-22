@@ -212,14 +212,14 @@ app.post('/user/update', function (req, res) {
 
 });
 
-app.get('/Report_product', function(req, res) {
+app.get('/product_report', function(req, res) {
     var sql ='select products.product_id,products.title,sum(purchase_items.quantity) as quantity,sum(purchase_items.price) as price from products inner join purchase_items on purchase_items.product_id=products.product_id group by products.product_id;select sum(quantity) as squantity,sum(price) as sprice from purchase_items';
     db.multi(sql)
     .then(function  (data) 
     {
  
         // console.log('DATA' + data);
-        res.render('pages/report_product', { product: data[0],sum: data[1]});
+        res.render('pages/product_report', { product: data[0],sum: data[1]});
     })
     .catch(function (data) 
     {

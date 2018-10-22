@@ -12,9 +12,9 @@
     <tbody>
     <% product.forEach(function(product) { %>
         <tr>
-            <td scope="row"><font color="blue"><%= product.title %></font></td>
+            <td scope="row"><font color="black"><%= product.title %></font></td>
             <td><font color="blue"><%= product.quantity %></font></td>
-            <td><font color="blue">$<%= product.price %></font></td>
+            <td><font color="red">$<%= product.price %></font></td>
         </tr>
         <% }); %>
         <% sum.forEach(function(sum) { %>
