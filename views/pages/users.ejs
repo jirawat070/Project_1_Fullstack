@@ -1,27 +1,43 @@
 <% include ../partials/header %>
-  
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>user ID</th>
-                        <th>Emil</th>
-                        <th>Password</th>
-                        <td><a name="" id="" class="btn btn-primary" href="/addUser" role="button">Add New</a></td>
-                        
-                    </tr>
-                </thead>
-                <tbody>
-                 <% users.forEach(function(user) { %>
-                    <tr>
-                        <td scope="row"><%= user.id %></td>
-                        <td><%= user.email %></td>
-                        <td><%= user.password %></td>
-                        <td><a name="" id="" class="btn btn-primary" href="/users/<%= user.id %>" role="button">Edit</a></td>
-                        <td><a name="" id="" class="btn btn-danger" href="/user_delete/<%= user.id %>" onclick="return confirm('Are you sure you want to delete?')" role="button">Delete</a></td>
-                    </tr>
-                     <% }); %>
-                </tbody>
-            </table>
 
+<table class="table">
+    <thead>
+        <tr>
+            <th>user ID</th>
+            <th>Emil</th>
+            <th>Password</th>
+            <td><a name="" id="" class="btn btn-primary" href="/addUser" role="button">Add New</a></td>
 
- <% include ../partials/footer %>
+        </tr>
+    </thead>
+    <tbody>
+        <% users.forEach(function(user) { %>
+        <tr>
+            <td scope="row">
+                <%= user.id %>
+            </td>
+            <td>
+                <%= user.email %>
+            </td>
+            <td>
+                <%= user.password %>
+            </td>
+            <td><a name="" id="" class="btn btn-primary" href="/users/<%= user.id %>" role="button">Edit</a></td>
+            <td><a name="" id="" class="btn btn-danger" href="/user_delete/<%= user.id %>" onclick="return confirm('Are you sure you want to delete?')"
+                    role="button">Delete</a></td>
+        </tr>
+        <% }); %>
+    </tbody>
+</table>
+
+<script language="JavaScript">
+    function Confirm() {
+        if (confirm('Do you want to delete product') == true) {
+            window.location = "/user_delete/<%= user.id %>";
+
+        } else {
+            return (null);
+        }
+    }
+</script>
+<% include ../partials/footer %>

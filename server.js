@@ -28,7 +28,7 @@ app.get('/about', function (req, res) {
 //Display all products
 app.get('/products', function (req, res) {
     var id = req.param('id');
-    var sql = 'select* from products'
+    var sql = 'select* from products '
     ;
     if (id) {
         sql += ' where id =' + id +' order by id';
@@ -66,9 +66,9 @@ app.get('/products/:pid', function (req, res) {
 //Display all user
 app.get('/users', function (req, res) {
     var id = req.param('id');
-    var sql = 'select* from users';
+    var sql = 'select* from users ' ;
     if (id) {
-        sql += ' where id =' + id;
+        sql += ' where id =' + id +' order by id';;
     }
     db.any(sql)
         .then(function (data) {
@@ -113,9 +113,9 @@ app.post('/product/update',function (req, res) {
 
 });
 
-app.get('/product_delete/:pid',function (req, res) {
+app.get('/user_delete/:pid',function (req, res) {
     var id = req.params.pid;
-    var sql = 'delete from products';
+    var sql = 'delete from users';
     if (id){
             sql += ' where id ='+ id;
     }
@@ -185,14 +185,32 @@ app.get('/product_delete/:pid',function (req, res) {
             var id = req.body.id;
             var email = req.body.email;
             var password = req.body.password;
-            var sql =  `update users set email = '${email}' ,password = ${password} where id = ${id}`;
+            var sql =  `update users set email = '${email}' ,password = '${password}' where id = ${id}`;
             db.none(sql)
             console.log('Update' + sql);
-            res.redirect('/products') //ส่งuserไปที่หน้าอื่นของเว็บ
+            res.redirect('/users') //ส่งuserไปที่หน้าอื่นของเว็บ
         
         
         });
   
+        app.get('/user_delete/:pid',function (req, res) {
+            var id = req.params.pid;
+            var sql = 'delete from users';
+            if (id){
+                    sql += ' where id ='+ id;
+            }
+            db.any(sql)
+                .then(function(data){
+                    console.log('DATA:'+data);
+                    
+                    res.redirect('/users') //ส่งuserไปที่หน้าอื่นของเว็บ
+                    
+                })
+                .catch(function(data){
+                        console.log('ERROR:'+console.error);
+                        
+            })
+         });
 
 //เป็นส่วนที่ไปดึงค่าที่heroku set  ไว้
 var port = process.env.PORT || 8080;
