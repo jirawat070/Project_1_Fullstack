@@ -227,6 +227,20 @@ app.get('/product_report', function(req, res) {
     })
 });
 
+app.get('/user_report', function(req, res) {
+    var sql='select purchases.user_id,purchases.name,users.email,sum(purchase_items.price) as price from purchases inner join users on users.user_id=purchases.user_id inner join purchase_items on purchase_items.purchase_id=purchases.purchase_id group by purchases.user_id,purchases.name,users.email order by sum(purchase_items.price) desc LIMIT 25;'
+    db.any(sql)
+        .then(function (data) 
+        {
+            // console.log('DATA' + data);
+            res.render('pages/user_report', { user : data });
+        })
+        .catch(function (data) 
+        {
+            console.log('ERROR' + error);
+        })
+});
+
 //เป็นส่วนที่ไปดึงค่าที่heroku set  ไว้
 var port = process.env.PORT || 8080;
 app.listen(port, function () {
