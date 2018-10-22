@@ -2,7 +2,7 @@
 <form action="/product/update" method="post">
   <div class="form-group">
     <label for="">ID</label>
-    <input type="number" class="form-control" value="<%= product.id %>" name="id" id="" aria-describedby="helpId"
+    <input type="number" class="form-control" value="<%= product.product_id %>" name="id" id="" aria-describedby="helpId"
       placeholder="">
     <small id="helpId" class="form-text text-muted">ProductID</small>
   </div>
@@ -35,11 +35,11 @@
 <script language="JavaScript">
   function Confirm() {
     if (confirm('Do you want to delete product') == true) {
-      window.location = "/product_delete/<%= product.id %>";
+      window.location = "/product_delete/<%= product.product_id %>";
 
     } else {
       return (null);
     }
   }
 </script>
-<% include ../partials/footer %>
+<% include ../partials/footer %> 

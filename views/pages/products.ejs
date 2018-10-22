@@ -1,6 +1,7 @@
 <% include ../partials/header %>
 <p>Search Product</p>
 <input class="form-control" id="myInput" type="text" placeholder="Search..">
+<div class="table-responsive">
 <table class="table">
     <thead>
         <tr>
@@ -16,7 +17,7 @@
         <% products.forEach(function(product) { %>
         <tr>
             <td scope="row">
-                <%= product.id %>
+                <%= product.product_id %>
             </td>
             <td>
                 <%= product.title %>
@@ -24,14 +25,15 @@
             <td>
                 <%= product.price %>
             </td>
-            <td><a name="" id="" class="btn btn-primary" href="/products/<%= product.id %>" role="button">Edit</a></td>
-            <td><a name="" id="" class="btn btn-danger" href="/product_delete/<%= product.id %>" onclick="return confirm('Are you sure you want to delete?')"
+            <td><a name="" id="" class="btn btn-primary" href="/products/<%= product.product_id %>" role="button">Edit</a></td>
+            <td><a name="" id="" class="btn btn-danger" href="/product_delete/<%= product.product_id %>" onclick="return confirm('Are you sure you want to delete?')"
                     role="button">Delete</a></td>
 
         </tr>
         <% }); %>
     </tbody>
 </table>
+</div>
 <script>
     $(document).ready(function () {
         $("#myInput").on("keyup", function () {

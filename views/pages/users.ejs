@@ -1,5 +1,5 @@
 <% include ../partials/header %>
-
+<div class="table-responsive">
 <table class="table">
     <thead>
         <tr>
@@ -14,7 +14,7 @@
         <% users.forEach(function(user) { %>
         <tr>
             <td scope="row">
-                <%= user.id %>
+                <%= user.user_id %>
             </td>
             <td>
                 <%= user.email %>
@@ -22,13 +22,13 @@
             <td>
                 <%= user.password %>
             </td>
-            <td><a name="" id="" class="btn btn-primary" href="/users/<%= user.id %>" role="button">Edit</a></td>
-            <td><a name="" id="" class="btn btn-danger" href="/user_delete/<%= user.id %>" onclick="return confirm('Are you sure you want to delete?')"
+            <td><a name="" id="" class="btn btn-primary" href="/users/<%= user.user_id %>" role="button">Edit</a></td>
+            <td><a name="" id="" class="btn btn-danger" href="/user_delete/<%= user.user_id %>" onclick="return confirm('Are you sure you want to delete?')"
                     role="button">Delete</a></td>
         </tr>
         <% }); %>
     </tbody>
 </table>
 
-
+</div>
 <% include ../partials/footer %>
