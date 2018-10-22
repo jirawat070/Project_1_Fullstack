@@ -6,6 +6,7 @@ var db = pgp('postgres://zyenusgppnblre:ffd912c16f1f131cc08a6079470346b92bd1a09e
 var app = express();
 var bodyParser = require('body-parser');
 var moment = require('moment');
+var time = moment().format();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); 
 
@@ -48,10 +49,12 @@ app.get('/products', function (req, res) {
 app.get('/products/:pid', function (req, res) {
     var pid = req.params.pid;
     var sql = "select * from products where id=" + pid;
+    
+        
     db.any(sql)
         .then(function (data) {
 
-            res.render('pages/product_edit', { product: data[0] })
+            res.render('pages/product_edit', { product: data[0] , time: time})
 
         })
         .catch(function (error) {

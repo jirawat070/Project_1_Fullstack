@@ -7,6 +7,7 @@
                         <th>Emil</th>
                         <th>Password</th>
                         <td><a name="" id="" class="btn btn-primary" href="/addUser" role="button">Add New</a></td>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -15,6 +16,8 @@
                         <td scope="row"><%= user.id %></td>
                         <td><%= user.email %></td>
                         <td><%= user.password %></td>
+                        <td><a name="" id="" class="btn btn-primary" href="/products/<%= product.id %>" role="button">Edit</a></td>
+                        <td><a name="" id="" class="btn btn-danger" href="/product_delete/<%= product.id %>" onclick="return confirm('Are you sure you want to delete?')" role="button">Delete</a></td>
                     </tr>
                      <% }); %>
                 </tbody>
