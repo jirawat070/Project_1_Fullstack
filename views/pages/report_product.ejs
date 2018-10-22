@@ -1,0 +1,29 @@
+<% include ../partials/header %>
+&nbsp;
+<h1 class="text-center">Report:Purchase by item</h1>
+<table class="table">
+    <thead>
+        <tr>
+        <th>ITEM NAME</th>
+        <th>QUANTITY PURCHASED</th>
+        <th>AMOUNT</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% product.forEach(function(product) { %>
+        <tr>
+            <td scope="row"><font color="blue"><%= product.title %></font></td>
+            <td><font color="blue"><%= product.quantity %></font></td>
+            <td><font color="blue">$<%= product.price %></font></td>
+        </tr>
+        <% }); %>
+        <% sum.forEach(function(sum) { %>
+        <tr>
+            <td scope="row">Total</td>
+            <td id="quantity"><%= sum.squantity %></td>
+            <td id="price">$<%= sum.sprice %></td>
+        </tr>
+        <% }); %>
+    </tbody>
+</table>
+ <% include ../partials/footer %>

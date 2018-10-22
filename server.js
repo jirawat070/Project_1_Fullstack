@@ -219,7 +219,7 @@ app.get('/Report_product', function(req, res) {
     {
  
         // console.log('DATA' + data);
-        res.render('pages/Report_product', { product: data[0],sum: data[1]});
+        res.render('pages/report_product', { product: data[0],sum: data[1]});
     })
     .catch(function (data) 
     {
