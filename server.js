@@ -242,7 +242,7 @@ app.get('/user_report', function(req, res) {
 });
 
 //เป็นส่วนที่ไปดึงค่าที่heroku set  ไว้
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 8088;
 app.listen(port, function () {
     console.log('App is running on http://localhost:' + port);
 });
