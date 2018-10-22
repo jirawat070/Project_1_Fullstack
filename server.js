@@ -146,8 +146,8 @@ app.get('/product_delete/:pid',function (req, res) {
             var email = req.body.email;
             var password = req.body.password;
             var time = req.body.time;
-            var sql =  `INSERT INTO products (id,email,password,created_at)
-            VALUES ('${id}', '${email}', '${password}','${time}')`;
+            var sql =  `INSERT INTO users (id,email,password,created_at)
+            VALUES (${id}, '${email}', '${password}','${time}')`;
             db.any(sql)
             .then(function (data) {
                 console.log('DATA:' + data);
