@@ -31,7 +31,7 @@ app.get('/products', function (req, res) {
     var sql = 'select* from products '
     ;
     if (id) {
-        sql += ' where id =' + id +' order by id';
+        sql += ' where id =' + id ;
     }
     db.any(sql+' order by id')
         .then(function (data) {
@@ -68,9 +68,9 @@ app.get('/users', function (req, res) {
     var id = req.param('id');
     var sql = 'select* from users ' ;
     if (id) {
-        sql += ' where id =' + id +' order by id';;
+        sql += ' where id =' + id ;;
     }
-    db.any(sql)
+    db.any(sql+' order by id')
         .then(function (data) {
             console.log('DATA:' + data);
             res.render('pages/users', { users: data })

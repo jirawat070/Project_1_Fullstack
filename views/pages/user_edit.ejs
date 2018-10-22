@@ -35,4 +35,17 @@
 
 </form>
 
+<script language="JavaScript">
+    function Confirm() {
+        if (confirm('Do you want to delete user') == true) {
+            window.location = "/user_delete/<%= user.id %>";
+
+        } else {
+            return (null);
+        }
+    }
+</script>
+
+
+
  <% include ../partials/footer %>
