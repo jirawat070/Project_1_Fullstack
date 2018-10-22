@@ -1,45 +1,45 @@
 <% include ../partials/header %>
 <form action="/product/update" method="post">
-<div class="form-group">
-  <label for="">ID</label>
-  <input type="number"
-    class="form-control" value="<%= product.id %>" name="id" id="" aria-describedby="helpId" placeholder="">
-  <small id="helpId" class="form-text text-muted">ProductID</small>
-</div>
+  <div class="form-group">
+    <label for="">ID</label>
+    <input type="number" class="form-control" value="<%= product.id %>" name="id" id="" aria-describedby="helpId"
+      placeholder="">
+    <small id="helpId" class="form-text text-muted">ProductID</small>
+  </div>
 
-<div class="form-group">
+  <div class="form-group">
     <label for="">Title</label>
-    <input type="text"
-      class="form-control" value="<%= product.title %>" name="title" id="" aria-describedby="helpId" placeholder="">
+    <input type="text" class="form-control" value="<%= product.title %>" name="title" id="" aria-describedby="helpId"
+      placeholder="">
     <small id="helpId" class="form-text text-muted">Product title</small>
-</div>
+  </div>
 
-<div class="form-group">
+  <div class="form-group">
     <label for="">Price</label>
-    <input type="number"
-      class="form-control" value="<%= product.Price %>" name="price" id="" aria-describedby="helpId" placeholder="">
+    <input type="number" class="form-control" value="<%= product.Price %>" name="price" id="" aria-describedby="helpId"
+      placeholder="">
     <small id="helpId" class="form-text text-muted">Product price</small>
-</div>
+  </div>
 
-<div class="form-group">
-    <input type="text" class="form-control" value="<%= time %>" name="time" id="" aria-describedby="helpId"
-        placeholder="">
+  <div class="form-group">
+    <input type="text" class="form-control" value="<%= time %>" name="time" id="" aria-describedby="helpId" placeholder="">
     <small id="helpId" class="form-text text-muted">Time</small>
-</div>
+  </div>
 
-    <button type="submit" class="btn btn-success">Save</button>
-    <a name="" id="" class="btn btn-danger"  onclick="Confirm()"  role="button">Delete</a>
-    <a name="" id="" class="btn btn-primary" href="/products" role="button">Cancel</a>
+  <button type="submit" class="btn btn-success">Save</button>
+  <a name="" id="" class="btn btn-danger" onclick="Confirm()" role="button">Delete</a>
+  <a name="" id="" class="btn btn-primary" href="/products" role="button">Cancel</a>
 
 </form>
+
 <script language="JavaScript">
-  function Confirm(){
-    if(confirm('Do you want to delete product')==true){
+  function Confirm() {
+    if (confirm('Do you want to delete product') == true) {
       window.location = "/product_delete/<%= product.id %>";
-      
-   }else{
-    return(null);
+
+    } else {
+      return (null);
+    }
   }
-}
 </script>
 <% include ../partials/footer %>

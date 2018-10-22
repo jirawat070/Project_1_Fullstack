@@ -1,36 +1,36 @@
 <% include ../partials/header %>
-  
-  <form action ="/user/update" method ="post">
-  <div class="form-group">
-    <label for="">ID</label>
-    <input type="number"
-      class="form-control"value ="<%= users.id %>" name="id" id="" aria-describedby="helpId" placeholder="">
-    <small id="helpId" class="form-text text-muted">User ID</small>
-  </div>
 
-<div class="form-group">
-    <label for="">email</label> 
-    <input type="text"
-      class="form-control" value ="<%= users.email %>"name="email" id="" aria-describedby="helpId" placeholder="">
-    <small id="helpId" class="form-text text-muted">Email</small>
-  </div>
+<form action="/user/update" method="post">
+    <div class="form-group">
+        <label for="">ID</label>
+        <input type="number" class="form-control" value="<%= users.id %>" name="id" id="" aria-describedby="helpId"
+            placeholder="">
+        <small id="helpId" class="form-text text-muted">User ID</small>
+    </div>
 
-<div class="form-group">
-    <label for="">password</label>
-    <input type="text"
-      class="form-control" value = "<%= users.password %>"name="password" id="" aria-describedby="helpId" placeholder="">
-    <small id="helpId" class="form-text text-muted">Password</small>
-  </div>
-  
-  <div class="form-group">
-    <input type="text" class="form-control" value="<%= time %>" name="time" id="" aria-describedby="helpId"
-        placeholder="">
-    <small id="helpId" class="form-text text-muted">Time</small>
-</div>
+    <div class="form-group">
+        <label for="">email</label>
+        <input type="text" class="form-control" value="<%= users.email %>" name="email" id="" aria-describedby="helpId"
+            placeholder="">
+        <small id="helpId" class="form-text text-muted">Email</small>
+    </div>
 
-<button type="submit" class="btn">Cancel</button>
-<button type="submit" class="btn btn-success">Save</button>
-<a name="" id="" class="btn btn-danger"  onclick="Confirm()"  role="button">Delete</a>
+    <div class="form-group">
+        <label for="">password</label>
+        <input type="text" class="form-control" value="<%= users.password %>" name="password" id="" aria-describedby="helpId"
+            placeholder="">
+        <small id="helpId" class="form-text text-muted">Password</small>
+    </div>
+
+    <div class="form-group">
+        <input type="text" class="form-control" value="<%= time %>" name="time" id="" aria-describedby="helpId"
+            placeholder="">
+        <small id="helpId" class="form-text text-muted">Time</small>
+    </div>
+
+    <button type="submit" class="btn">Cancel</button>
+    <button type="submit" class="btn btn-success">Save</button>
+    <a name="" id="" class="btn btn-danger" onclick="Confirm()" role="button">Delete</a>
 
 
 </form>
@@ -48,4 +48,4 @@
 
 
 
- <% include ../partials/footer %>
+<% include ../partials/footer %>
