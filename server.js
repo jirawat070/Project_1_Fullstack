@@ -82,6 +82,24 @@ app.get('/users', function (req, res) {
 
 });
 
+app.get('/users/:pid', function (req, res) {
+    var pid = req.params.pid;
+    var sql = "select * from users where id=" + pid;
+    
+        
+    db.any(sql)
+        .then(function (data) {
+
+            res.render('pages/user_edit', { users: data[0] , time: time})
+
+        })
+        .catch(function (error) {
+            console.log('ERROR:' + error);
+        })
+
+
+});
+
 //update data
 app.post('/product/update',function (req, res) {
     var id = req.body.id;
@@ -94,6 +112,7 @@ app.post('/product/update',function (req, res) {
 
 
 });
+
 app.get('/product_delete/:pid',function (req, res) {
     var id = req.params.pid;
     var sql = 'delete from products';
@@ -159,6 +178,18 @@ app.get('/product_delete/:pid',function (req, res) {
             .catch(function (error) {
                 console.log('ERROR:' + error);
             })
+        
+        });
+
+        app.post('/user/update',function (req, res) {
+            var id = req.body.id;
+            var email = req.body.email;
+            var password = req.body.password;
+            var sql =  `update users set email = '${email}' ,password = ${password} where id = ${id}`;
+            db.none(sql)
+            console.log('Update' + sql);
+            res.redirect('/products') //ส่งuserไปที่หน้าอื่นของเว็บ
+        
         
         });
   
